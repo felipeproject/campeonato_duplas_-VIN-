@@ -3,17 +3,75 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Widget de Arrecadação</title>
+    <title>Participantes do Campeonato</title>
     <style>
         body {
+            font-family: Arial, sans-serif;
+            background-color: #1e1e1e; /* Fundo escuro */
+            color: #ffffff; /* Texto claro */
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
-            margin: 0;
-            background-color: #121212; /* Fundo escuro */
+            flex-direction: column;
+            padding: 20px;
+            position: relative; /* Para posicionar o botão no canto */
         }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            max-width: 800px;
+        }
+        .dupla {
+            background: #2c2c2c; /* Cor do card da dupla */
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            margin: 10px;
+            padding: 20px;
+            width: 350px; /* Largura do card da dupla */
+        }
+        .card {
+            text-align: center;
+            flex: 1; /* Faz os cards ocuparem o espaço disponível */
+        }
+        .card img {
+            border-radius: 50%;
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            margin-bottom: 10px;
+        }
+        h2 {
+            font-size: 16px;
+            margin: 5px 0;
+        }
+        .mensagem {
+            margin-top: 20px;
+            font-size: 18px;
+            text-align: center;
+            color: #ffa500; /* Cor da mensagem */
+        }
+        .botao-arrecadacao {
+            position: absolute; /* Para posicionar o botão */
+            top: 20px; /* Distância do topo */
+            left: 20px; /* Distância da esquerda */
+            background-color: #28a745; /* Cor de fundo do botão */
+            color: white; /* Cor do texto */
+            border: none; /* Sem borda */
+            border-radius: 5px; /* Cantos arredondados */
+            padding: 10px 20px; /* Espaçamento interno */
+            font-size: 16px; /* Tamanho da fonte */
+            cursor: pointer; /* Cursor de mão ao passar o mouse */
+            transition: background-color 0.3s; /* Transição suave para hover */
+        }
+        .botao-arrecadacao:hover {
+            background-color: #218838; /* Cor ao passar o mouse */
+        }
+        /* Estilos do Widget de Arrecadação */
         .widget-container {
+            display: none; /* Inicialmente oculto */
             font-family: Arial, sans-serif;
             background-color: #1e1e1e; /* Cor de fundo do widget */
             border: 2px solid #444; /* Borda mais escura */
@@ -22,12 +80,13 @@
             width: 300px;
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
             text-align: center;
-            transition: transform 0.3s ease;
+            position: fixed; /* Fixa o widget na tela */
+            top: 50%; /* Centraliza verticalmente */
+            left: 50%; /* Centraliza horizontalmente */
+            transform: translate(-50%, -50%); /* Move o widget para o centro */
+            z-index: 1000; /* Garante que fique acima de outros elementos */
         }
-        .widget-container:hover {
-            transform: scale(1.05);
-        }
-        h2 {
+        .widget-container h2 {
             font-size: 1.5em;
             color: #fff; /* Cor do título */
             margin-bottom: 15px;
@@ -100,72 +159,158 @@
                 transform: scale(1);
             }
         }
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7); /* Fundo escuro com opacidade */
+            display: none; /* Oculta por padrão */
+            z-index: 999; /* Acima do conteúdo */
+        }
+
+        /* Estilo do carregamento */
+        .carregando {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #ffa500; /* Cor do texto de carregamento */
+            display: none; /* Oculta por padrão */
+        }
+        .loader {
+            border: 8px solid #f3f3f3; /* Cor do fundo do loader */
+            border-top: 8px solid #28a745; /* Cor do loader */
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite; /* Animação de rotação */
+            margin: 0 auto; /* Centraliza o loader */
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
     </style>
 </head>
 <body>
 
-<!-- Widget Compacto -->
-<div class="widget-container">
-    <h2>Ajude na Premiação!</h2>
+    <button class="botao-arrecadacao" onclick="abrirWidget()">Ajude na Premiação!</button>
 
-    <!-- Imagem do grupo abaixo do título -->
-    <img src="imagem.jpg" alt="Imagem do grupo">
+    <h1>Participantes do Campeonato</h1>
+    <div class="container">
+        <div class="dupla">
+            <div class="card">
+                <img src="domRJ.png" alt="Dom RJ">
+                <h2>Dom RJ</h2>
+            </div>
+            <div class="card">
+                <img src="Doomed_Aim.png" alt="Doomed Aim">
+                <h2>Doomed Aim</h2>
+            </div>
+        </div>
+        <div class="dupla">
+            <div class="card">
+                <img src="Gambin-Metaleiro.png" alt="Gambin Metaleiro">
+                <h2>Gambin Metaleiro</h2>
+            </div>
+            <div class="card">
+                <img src="Kisaki212.png" alt="Kisaki 212">
+                <h2>Kisaki 212</h2>
+            </div>
+        </div>
+        <div class="dupla">
+            <div class="card">
+                <img src="LandersSA.png" alt="Landers SA">
+                <h2>Landers SA</h2>
+            </div>
+            <div class="card">
+                <img src="SALOMON_BR.png" alt="Salomon BR">
+                <h2>Salomon BR</h2>
+            </div>
+        </div>
+        <div class="dupla">
+            <div class="card">
+                <img src="xandexande.png" alt="Xande Xande">
+                <h2>Xande Xande</h2>
+            </div>
+            <div class="card">
+                <img src="xCHUMELAx.png" alt="XCHUMELAx">
+                <h2>XCHUMELAx</h2>
+            </div>
+        </div>
+    </div>
 
-    <!-- Valor arrecadado abaixo da imagem -->
-    <div class="valor-arrecadado" id="valorArrecadado">R$ 0,00</div> <!-- Valor arrecadado aqui -->
+    <div class="mensagem">Outras equipes já estão sendo adicionadas, aguarde!</div>
 
-    <p class="descricao">Contribua via PIX:</p>
-    <p class="pix" id="pix-key">(54) 99276-7447</p> <!-- Chave PIX aqui -->
+    <!-- Widget de Arrecadação -->
+    <div class="overlay" id="overlay"></div>
+    <div class="widget-container" id="widget">
+        <h2>Ajude na Premiação!</h2>
+        <img src="imagem.jpg" alt="Imagem do grupo">
+        <div class="valor-arrecadado" id="valorArrecadado">R$ 0,00</div>
+        <p class="descricao">Contribua via PIX:</p>
+        <p class="pix" id="pix-key">(54) 99276-7447</p>
+        <button class="button" onclick="copiarChavePix()">Copiar Chave PIX</button>
+        <p class="copy-message" id="copyMessage">Chave copiada!</p>
+        <button class="button" onclick="fecharWidget()">Fechar</button>
+    </div>
 
-    <!-- Botão de copiar a chave PIX -->
-    <button class="button" onclick="copiarChavePix()">Copiar Chave PIX</button>
+    <!-- Carregamento -->
+    <div class="carregando" id="carregando">
+        <div class="loader"></div>
+        <p>Estamos cuidando da arrecadação...</p>
+    </div>
 
-    <!-- Mensagem de confirmação -->
-    <p class="copy-message" id="copyMessage">Chave copiada!</p>
-</div>
+    <script>
+        function abrirWidget() {
+            document.getElementById("widget").style.display = "block";
+            document.getElementById("overlay").style.display = "block";
+        }
 
-<script>
-    function copiarChavePix() {
-        // Seleciona o texto da chave PIX
-        var chavePix = document.getElementById("pix-key").innerText;
-        
-        // Cria um elemento temporário para copiar o texto
-        var tempInput = document.createElement("input");
-        tempInput.value = chavePix;
-        document.body.appendChild(tempInput);
-        tempInput.select();
-        document.execCommand("copy");
-        document.body.removeChild(tempInput);
-        
-        // Exibe a mensagem de confirmação
-        var copyMessage = document.getElementById("copyMessage");
-        copyMessage.style.display = "block";
+        function fecharWidget() {
+            document.getElementById("widget").style.display = "none";
+            document.getElementById("overlay").style.display = "none";
+        }
 
-        // Esconde a mensagem após 2 segundos
-        setTimeout(function() {
-            copyMessage.style.display = "none";
-        }, 2000);
-    }
+        function copiarChavePix() {
+            var chavePix = document.getElementById("pix-key").innerText;
+            var tempInput = document.createElement("input");
+            tempInput.value = chavePix;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand("copy");
+            document.body.removeChild(tempInput);
+            var copyMessage = document.getElementById("copyMessage");
+            copyMessage.style.display = "block";
+            setTimeout(function() {
+                copyMessage.style.display = "none";
+            }, 2000);
+        }
 
-    // Função para animar o valor arrecadado
-    function animarValorArrecadado(finalValor) {
-        const valorElemento = document.getElementById('valorArrecadado');
-        let valorAtual = 0;
+        function animarValorArrecadado(finalValor) {
+            const valorElemento = document.getElementById('valorArrecadado');
+            let valorAtual = 0;
 
-        const incrementar = setInterval(() => {
-            valorElemento.style.animation = 'countAnimation 1s';
-            valorElemento.innerText = `R$ ${valorAtual},00`;
-            valorAtual += 1;
+            const incrementar = setInterval(() => {
+                valorElemento.style.animation = 'countAnimation 1s';
+                valorElemento.innerText = `R$ ${valorAtual},00`;
+                valorAtual += 1;
 
-            if (valorAtual > finalValor) {
-                clearInterval(incrementar);
-            }
-        }, 20); // Intervalo de tempo para incrementar
-    }
+                if (valorAtual > finalValor) {
+                    clearInterval(incrementar);
+                }
+            }, 20);
+        }
 
-    // Inicia a animação com o valor desejado
-    animarValorArrecadado(20); // Defina o valor final aqui
-</script>
+        // Inicia a animação com o valor desejado
+        animarValorArrecadado(20); // Defina o valor final aqui
+
+        // Exibe o carregamento após 5 segundos
+        setTimeout(() => {
+            document.getElementById("carregando").style.display = "block";
+        }, 5000);
+    </script>
 
 </body>
 </html>
