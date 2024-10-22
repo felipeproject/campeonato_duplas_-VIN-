@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campeonato Interno de Duplas</title>
+    <style>
+        /* Estilos gerais */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #121212;
+            /* Fundo escuro */
+            color: #ffffff;
+            /* Texto claro */
+            padding: 20px;
+            margin: 0;
+        }
+
+        /* Cabeçalho */
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .header h1 {
+            font-size: 48px;
+            color: #e91e63;
+            /* Rosa vibrante */
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        .header .underline {
+            border-top: 2px solid #e91e63;
+            /* Linha embaixo */
+            width: 80%;
+            /* Largura da linha */
+            margin: 10px auto;
+            /* Centraliza a linha */
+        }
+
+        /* Cartão de data */
+        .date-card {
+            position: fixed;
+            top: 70px;
+            /* Abaixo da aba */
+            right: 20px;
+            /* Margem direita */
+            background: #1a73e8;
+            /* Azul */
+            color: #ffffff;
+            /* Texto branco */
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            font-size: 20px;
+            width: 120px;
+            height: 100px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Títulos */
+        h2 {
+            font-size: 28px;
+            margin: 15px 0;
+            color: #ffffff;
+            /* Texto claro */
+        }
+
+        /* Botões */
+        .ajuda-button,
+        .button {
+            background-color: #28a745;
+            /* Cor de fundo do botão */
+            color: white;
+            /* Cor do texto */
+            border: none;
+            /* Sem borda */
+            border-radius: 5px;
+            /* Cantos arredondados */
+            padding: 10px 20px;
+            /* Espaçamento interno */
+            font-size: 20px;
+            /* Tamanho da fonte */
+            cursor: pointer;
+            /* Cursor de mão ao passar o mouse */
+            transition: background-color 0.3s;
+            /* Transição suave para hover */
+            margin-top: 10px;
+            /* Espaçamento acima do botão */
+        }
+
+        .ajuda-button:hover,
+        .button:hover {
+            background-color: #218838;
+            /* Cor ao passar o mouse */
+        }
+
+        /* Contêiner do Admin */
+        .admin-container {
+            margin-bottom: 20px;
+            text-align: center;
+            background: #1e1e1e;
+            /* Fundo mais claro */
+            padding: 20px;
+            border-radius: 12px;
+            color: #1a73e8;
+            /* Azul */
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .admin-container img {
+            border-radius: 50%;
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+            margin-bottom: 10px;
+            border: 4px solid #1a73e8;
+            /* Borda azul */
+        }
+
+        /* Contêiner principal */
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Cartões */
+        .dupla,
+        .map-card {
+            background: #1e1e1e;
+            /* Fundo dos cards */
+            border-radius: 12px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            padding: 20px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            overflow: hidden;
+        }
+
+        .card {
+            text-align: center;
+            flex: 1;
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+        }
+
+        .card img {
+            border-radius: 50%;
+            width: 80px;
+            /* Largura fixa */
+            height: 80px;
+            /* Altura fixa */
+            object-fit: cover;
+            margin-bottom: 10px;
+            max-width: 100%;
+            /* Garante que a imagem não ultrapasse o limite */
+            max-height: 100%;
+            /* Garante que a imagem não ultrapasse o limite */
+        }
+
+        .card:hover {
+            transform: scale(1.1);
+            /* Zoom no card */
+            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.7);
+        }
+
+        /* Ícones */
+        .icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 10px;
+        }
+
+        .partido-icon {
+            width: 40px;
+            height: 40px;
+        }
+
+        /* Mensagens */
+        .mensagem {
+            margin-top: 20px;
+            font-size: 20px;
+            text-align: center;
+            color: #ff5722;
+            /* Laranja */
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .link-nome {
+            color: #1a73e8;
+            /* Azul */
+            text-decoration: none;
+            /* Remove sublinhado */
+            font-weight: bold;
+        }
+
+        .link-nome:hover {
+            text-decoration: underline;
+            /* Adiciona sublinhado no hover */
+        }
+
+        /* Animações */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        .pulse {
+            animation: pulse-animation 1s infinite;
+        }
+
+        @keyframes pulse-animation {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.1);
+            }
+        }
+
+        /* Cartões dos mapas */
+        .map-card {
+            background: #1e1e1e;
+            /* Fundo dos cards */
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            padding: 10px;
+            width: 125px;
+            margin: 10px;
+        }
+
+        .map-card img {
+            border-radius: 8px;
+            width: 100%;
+            /* Largura do card */
+            height: auto;
+            /* Altura automática */
+        }
+
+        .map-title {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        /* Widget de Arrecadação */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            /* Fundo escuro com opacidade */
+            display: none;
+            /* Oculta por padrão */
+            z-index: 999;
+            /* Acima do conteúdo */
+        }
+
+        .widget-container {
+            display: none;
+            /* Inicialmente oculto */
+            background-color: #1e1e1e;
+            /* Cor de fundo do widget */
+            border: 2px solid #444;
+            /* Borda mais escura */
+            border-radius: 15px;
+            padding: 20px;
+            width: 300px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            position: fixed;
+            /* Fixa o widget na tela */
+            top: 50%;
+            /* Centraliza verticalmente */
+            left: 50%;
+            /* Centraliza horizontalmente */
+            transform: translate(-50%, -50%);
+            /* Move o widget para o centro */
+            z-index: 1000;
+            /* Garante que fique acima de outros elementos */
+        }
+
+        .widget-container h2 {
+            font-size: 1.5em;
+            color: #fff;
+            /* Cor do título */
+            margin-bottom: 15px;
+        }
+
+        .pix {
+            font-weight: bold;
+            color: #28a745;
+            font-size: 1.2em;
+        }
+
+        .valor-arrecadado {
+            margin-top: 15px;
+            font-size: 2em;
+            /* Tamanho maior */
+            font-weight: bold;
+            color: #fff;
+            /* Cor do valor */
+            background-color: #28a745;
+            /* Fundo verde */
+            padding: 10px;
+            /* Espaçamento interno */
+            border-radius: 10px;
+            /* Cantos arredondados */
+            border: 2px solid #1e7e34;
+            /* Borda mais escura */
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+            /* Sombra */
+            transition: transform 0.2s;
+            /* Transição suave */
+        }
+
+        .valor-arrecadado:hover {
+            transform: scale(1.05);
+            /* Efeito de zoom ao passar o mouse */
+        }
+
+        /* Descrição */
+        .descricao {
+            font-size: 0.95em;
+            color: #ccc;
+            /* Cor da descrição */
+            margin-bottom: 10px;
+        }
+
+        /* Mensagem de cópia */
+        .copy-message {
+            margin-top: 10px;
+            font-size: 0.9em;
+            color: #28a745;
+            /* Cor da mensagem */
+            display: none;
+            /* Oculta por padrão */
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="header">
+        <h1>Campeonato Interno de Duplas</h1>
+        <div class="underline"></div>
+        <button class="ajuda-button" onclick="abrirWidget()">Ajude na Premiação! </button> <!-- Botão adicionado -->
+
+    </div>
+    <h2> 👉 Organizador</h2>
+    <div style="display: flex; align-items: center; margin-top: 20px;">
+        <div id="admin"></div>
+        <div style="display: flex; flex-wrap: wrap; margin-left: 20px;">
+            <div class="map-card">
+                <img src="https://wstatic-prod.pubg.com/web/live/main_a91c4dc/img/3ab566e.jpg" alt="Sanhok">
+                <div class="map-title">1 Partida</div>
+                <div class="map-title">Sanhok</div>
+            </div>
+            <div class="map-card">
+                <img src="https://wstatic-prod.pubg.com/web/live/main_a91c4dc/img/1bee462.jpg" alt="Vikendi">
+                <div class="map-title">2 Partida</div>
+                <div class="map-title">Vikendi</div>
+            </div>
+            <div class="map-card">
+                <img src="https://wstatic-prod.pubg.com/web/live/main_a91c4dc/img/b5c3c7f.jpg" alt="Miramar">
+                <div class="map-title">3 Partida</div>
+                <div class="map-title">Miramar</div>
+            </div>
+            <div class="map-card">
+                <img src="https://wstatic-prod.pubg.com/web/live/main_a91c4dc/img/9b5d63e.jpg" alt="Erangel">
+                <div class="map-title">Final 🏆</div>
+                <div class="map-title">Erangel</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="date-card">
+        <div class="date-value" style="font-size: 3em; font-weight: bold; margin-right: 1px;">9</div>
+        <div class="date-value" style="font-size: 1em; font-weight: bold; margin-right: 3px;">10</div>
+        <div class="date-label" style="font-size: 0.80em;">📅 Novembro</div>
+    </div>
+
+
+    <div style="display: flex; justify-content: center; align-items: center; padding: 20px; border-radius: 8px;">
+        <h2 style="font-size: 2.5em; color: #ffffff; text-align: center; margin: 0;">Duplas</h2>
+        <img src="pubg.png" alt="Logo do PUBG" style="width: 250px; height: auto; float: center; margin-left: 10px;">
+    </div>
+    <div class="container" id="equipesContainer">
+
+    </div>
+
+
+
+    <div class="mensagem">Outras equipes já estão sendo adicionadas, aguarde!</div>
+
+    <!-- Overlay e Widget de Arrecadação -->
+    <!-- Widget de Arrecadação -->
+    <div class="overlay" id="overlay"></div>
+    <div class="widget-container" id="widget">
+        <h2>Valor Arrecadado</h2>
+        <div class="valor-arrecadado" id="valorArrecadado">R$ 20,00</div>
+        <p class="descricao">Contribua via chave PIX:</p>
+        <p class="pix" id="pix-key">(54) 99276-7447</p>
+        <button class="button" onclick="copiarChavePix()">Copiar Chave PIX</button>
+        <p class="copy-message" id="copyMessage">Chave copiada!</p>
+        <button class="button" onclick="fecharWidget()">Fechar</button>
+    </div>
+
+
+    <script>
+        function carregarEquipes() {
+            fetch('equipes.json')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Rede não disponível');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    let admin = data.admin;
+                    let adminContainer = document.getElementById('admin');
+                    adminContainer.innerHTML = `
+                        <div class="admin-container">
+                            <img src="imagens/${admin.imagem}" alt="${admin.nome}">
+                            <h2>${admin.nome}</h2>
+                        </div>
+                    `;
+
+                    let container = document.getElementById('equipesContainer');
+                    data.equipes.forEach(equipe => {
+                        const nick1 = equipe.dupla[0];
+                        const nick2 = equipe.dupla[1];
+                        const link1 = `https://pubg.op.gg/user/${nick1}`;
+                        const link2 = nick2 === '(aguardando a dupla)' ? nick2 : `https://pubg.op.gg/user/${nick2}`;
+
+                        container.innerHTML += `
+                            <div class="dupla">
+                                <div class="card">
+                                    <img src="imagens/${equipe.imagens[0]}" alt="${nick1}">
+                                    <a href="${link1}" target="_blank" class="link-nome">${nick1}</a>
+                                </div>
+                                <div class="icon">
+                                    <img src="imagens/icone_partido.png" alt="Ícone de Partido" class="partido-icon">
+                                </div>
+                                <div class="card">
+                                    <img src="imagens/${equipe.imagens[1]}" alt="${nick2}" class="${nick2 === '(aguardando a dupla)' ? 'pulse' : ''}">
+                                    <a href="${link2}" target="_blank" class="link-nome">${nick2}</a>
+                                </div>
+                            </div>
+                        `;
+                    });
+                });
+        }
+
+        carregarEquipes();
+
+        function abrirWidget() {
+            document.getElementById("widget").style.display = "block";
+            document.getElementById("overlay").style.display = "block";
+        }
+
+        function fecharWidget() {
+            document.getElementById("widget").style.display = "none";
+            document.getElementById("overlay").style.display = "none";
+        }
+
+        function copiarChavePix() {
+            var chavePix = document.getElementById("pix-key").innerText;
+            var tempInput = document.createElement("input");
+            tempInput.value = chavePix;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand("copy");
+            document.body.removeChild(tempInput);
+            var copyMessage = document.getElementById("copyMessage");
+            copyMessage.style.display = "block";
+            setTimeout(function () {
+                copyMessage.style.display = "none";
+            }, 2000);
+        }
+    </script>
+</body>
+
+</html>
