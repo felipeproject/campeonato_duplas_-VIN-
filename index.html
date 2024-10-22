@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Widget de Arrecadação</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f4;
+        }
+        .widget-container {
+            font-family: Arial, sans-serif;
+            background-color: #fff;
+            border: 2px solid #ddd;
+            border-radius: 15px;
+            padding: 20px;
+            width: 300px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        .widget-container:hover {
+            transform: scale(1.05);
+        }
+        h2 {
+            font-size: 1.5em;
+            color: #333;
+            margin-bottom: 15px;
+        }
+        .pix {
+            font-weight: bold;
+            color: #28a745;
+            font-size: 1.2em;
+        }
+        .valor-arrecadado {
+            margin-top: 15px;
+            font-size: 1.7em;
+            font-weight: bold;
+            color: #000;
+        }
+        .descricao {
+            font-size: 0.95em;
+            color: #666;
+            margin-bottom: 10px;
+        }
+        img {
+            width: 150px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .button {
+            display: inline-block;
+            background-color: #28a745;
+            color: #fff;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 15px;
+            font-size: 1em;
+            transition: background-color 0.3s ease;
+            cursor: pointer;
+        }
+        .button:hover {
+            background-color: #218838;
+        }
+        .copy-message {
+            margin-top: 10px;
+            font-size: 0.9em;
+            color: #28a745;
+            display: none; /* Oculta por padrão */
+        }
+    </style>
+</head>
+<body>
+
+<!-- Widget Compacto -->
+<div class="widget-container">
+    <h2>Ajude na Premiação!</h2>
+
+    <!-- Imagem do grupo abaixo do título -->
+    <img src="imagem.jpg" alt="Imagem do grupo">
+
+    <!-- Valor arrecadado abaixo da imagem -->
+    <div class="valor-arrecadado">R$ 0,00</div> <!-- Valor arrecadado aqui -->
+
+    <p class="descricao">Contribua via PIX:</p>
+    <p class="pix" id="pix-key">(54) 99276-7447</p> <!-- Chave PIX aqui -->
+
+    <!-- Botão de copiar a chave PIX -->
+    <button class="button" onclick="copiarChavePix()">Copiar Chave PIX</button>
+
+    <!-- Mensagem de confirmação -->
+    <p class="copy-message" id="copyMessage">Chave copiada!</p>
+</div>
+
+<script>
+    function copiarChavePix() {
+        // Seleciona o texto da chave PIX
+        var chavePix = document.getElementById("pix-key").innerText;
+        
+        // Cria um elemento temporário para copiar o texto
+        var tempInput = document.createElement("input");
+        tempInput.value = chavePix;
+        document.body.appendChild(tempInput);
+        tempInput.select();
+        document.execCommand("copy");
+        document.body.removeChild(tempInput);
+        
+        // Exibe a mensagem de confirmação
+        var copyMessage = document.getElementById("copyMessage");
+        copyMessage.style.display = "block";
+
+        // Esconde a mensagem após 2 segundos
+        setTimeout(function() {
+            copyMessage.style.display = "none";
+        }, 2000);
+    }
+</script>
+
+</body>
+</html>
