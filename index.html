@@ -11,16 +11,16 @@
             align-items: center;
             height: 100vh;
             margin: 0;
-            background-color: #f4f4f4;
+            background-color: #121212; /* Fundo escuro */
         }
         .widget-container {
             font-family: Arial, sans-serif;
-            background-color: #fff;
-            border: 2px solid #ddd;
+            background-color: #1e1e1e; /* Cor de fundo do widget */
+            border: 2px solid #444; /* Borda mais escura */
             border-radius: 15px;
             padding: 20px;
             width: 300px;
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
             text-align: center;
             transition: transform 0.3s ease;
         }
@@ -29,7 +29,7 @@
         }
         h2 {
             font-size: 1.5em;
-            color: #333;
+            color: #fff; /* Cor do título */
             margin-bottom: 15px;
         }
         .pix {
@@ -41,22 +41,23 @@
             margin-top: 15px;
             font-size: 1.7em;
             font-weight: bold;
-            color: #000;
+            color: #fff; /* Cor do valor */
+            animation: fadeIn 1s; /* Animação de fade */
         }
         .descricao {
             font-size: 0.95em;
-            color: #666;
+            color: #ccc; /* Cor da descrição */
             margin-bottom: 10px;
         }
         img {
             width: 150px;
             border-radius: 10px;
             margin-bottom: 15px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
         }
         .button {
             display: inline-block;
-            background-color: #28a745;
+            background-color: #28a745; /* Cor do botão */
             color: #fff;
             padding: 10px 20px;
             text-decoration: none;
@@ -67,13 +68,37 @@
             cursor: pointer;
         }
         .button:hover {
-            background-color: #218838;
+            background-color: #218838; /* Cor do botão ao passar o mouse */
         }
         .copy-message {
             margin-top: 10px;
             font-size: 0.9em;
-            color: #28a745;
+            color: #28a745; /* Cor da mensagem */
             display: none; /* Oculta por padrão */
+        }
+
+        /* Animação de fade-in */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Animação de contagem do valor */
+        @keyframes countAnimation {
+            from {
+                opacity: 0;
+                transform: scale(0.5);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
         }
     </style>
 </head>
@@ -87,7 +112,7 @@
     <img src="imagem.jpg" alt="Imagem do grupo">
 
     <!-- Valor arrecadado abaixo da imagem -->
-    <div class="valor-arrecadado">R$ 20,00</div> <!-- Valor arrecadado aqui -->
+    <div class="valor-arrecadado" id="valorArrecadado">R$ 0,00</div> <!-- Valor arrecadado aqui -->
 
     <p class="descricao">Contribua via PIX:</p>
     <p class="pix" id="pix-key">(54) 99276-7447</p> <!-- Chave PIX aqui -->
@@ -121,6 +146,25 @@
             copyMessage.style.display = "none";
         }, 2000);
     }
+
+    // Função para animar o valor arrecadado
+    function animarValorArrecadado(finalValor) {
+        const valorElemento = document.getElementById('valorArrecadado');
+        let valorAtual = 0;
+
+        const incrementar = setInterval(() => {
+            valorElemento.style.animation = 'countAnimation 1s';
+            valorElemento.innerText = `R$ ${valorAtual},00`;
+            valorAtual += 1;
+
+            if (valorAtual > finalValor) {
+                clearInterval(incrementar);
+            }
+        }, 20); // Intervalo de tempo para incrementar
+    }
+
+    // Inicia a animação com o valor desejado
+    animarValorArrecadado(20); // Defina o valor final aqui
 </script>
 
 </body>
