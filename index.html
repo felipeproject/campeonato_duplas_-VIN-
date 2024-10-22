@@ -16,11 +16,24 @@
             padding: 20px;
             position: relative; /* Para posicionar o botão no canto */
         }
+        .banner {
+            background-color: #28a745; /* Cor do fundo da aba */
+            color: white; /* Cor do texto */
+            text-align: center; /* Centraliza o texto */
+            padding: 10px 0; /* Espaçamento interno */
+            position: fixed; /* Fixa a aba no topo */
+            top: 0; /* Distância do topo */
+            left: 0; /* Distância da esquerda */
+            width: 100%; /* Largura total */
+            z-index: 1001; /* Garante que fique acima de outros elementos */
+        }
         .container {
+            margin-top: 60px; /* Espaço para não sobrepor a aba */
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
             max-width: 800px;
+            width: 100%; /* Garante que a largura do container use 100% */
         }
         .dupla {
             background: #2c2c2c; /* Cor do card da dupla */
@@ -43,6 +56,11 @@
             object-fit: cover;
             margin-bottom: 10px;
         }
+        h1 {
+            font-size: 24px; /* Aumenta o tamanho do título */
+            margin: 20px 0; /* Espaço acima e abaixo do título */
+            text-align: center; /* Centraliza o título */
+        }
         h2 {
             font-size: 16px;
             margin: 5px 0;
@@ -54,8 +72,8 @@
             color: #ffa500; /* Cor da mensagem */
         }
         .botao-arrecadacao {
-            position: absolute; /* Para posicionar o botão */
-            top: 20px; /* Distância do topo */
+            position: fixed; /* Altera para fixed para evitar sobreposição */
+            top: 70px; /* Distância do topo, abaixo da aba */
             left: 20px; /* Distância da esquerda */
             background-color: #28a745; /* Cor de fundo do botão */
             color: white; /* Cor do texto */
@@ -65,6 +83,7 @@
             font-size: 16px; /* Tamanho da fonte */
             cursor: pointer; /* Cursor de mão ao passar o mouse */
             transition: background-color 0.3s; /* Transição suave para hover */
+            z-index: 1000; /* Garante que fique acima de outros elementos */
         }
         .botao-arrecadacao:hover {
             background-color: #218838; /* Cor ao passar o mouse */
@@ -195,9 +214,10 @@
 </head>
 <body>
 
+    <div class="banner">Participantes do Campeonato</div> <!-- Nova aba fixa -->
+    
     <button class="botao-arrecadacao" onclick="abrirWidget()">Ajude na Premiação!</button>
 
-    <h1>Participantes do Campeonato</h1>
     <div class="container">
         <div class="dupla">
             <div class="card">
