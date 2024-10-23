@@ -1,7 +1,7 @@
 // valueCollected.js
 
 // Defina o valor da premiação com ponto para valores decimais
-const valorP = 40.00;
+const valorP = 60.00;
 
 // Formata o valor como moeda brasileira
 function formatarMoeda(valor) {
