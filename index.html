@@ -1,65 +1,67 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Campeonato Interno de Duplas VIN</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <div class="header">
-        <h1>Campeonato Interno de Duplas VIN</h1>
-        <div class="underline"></div>
-        <button class="ajuda-button" onclick="abrirWidget()">Ajude na Premiação! </button>
-    </div>
-    <h2> 👉 Organizador</h2>
-    <div style="display: flex; align-items: center; margin-top: 20px;">
-        <div id="admin"></div>
-        <div style="display: flex; flex-wrap: wrap; margin-left: 20px;">
-            <div class="map-card">
-                <img src="https://wstatic-prod.pubg.com/web/live/main_a91c4dc/img/3ab566e.jpg" alt="Sanhok">
-                <div class="map-title">1 Partida</div>
-                <div class="map-title">Sanhok</div>
-            </div>
-            <div class="map-card">
-                <img src="https://wstatic-prod.pubg.com/web/live/main_a91c4dc/img/1bee462.jpg" alt="Vikendi">
-                <div class="map-title">2 Partida</div>
-                <div class="map-title">Vikendi</div>
-            </div>
-            <div class="map-card">
-                <img src="https://wstatic-prod.pubg.com/web/live/main_a91c4dc/img/b5c3c7f.jpg" alt="Miramar">
-                <div class="map-title">3 Partida</div>
-                <div class="map-title">Miramar</div>
-            </div>
-            <div class="map-card">
-                <img src="https://wstatic-prod.pubg.com/web/live/main_a91c4dc/img/9b5d63e.jpg" alt="Erangel">
-                <div class="map-title">Final 🏆</div>
-                <div class="map-title">Erangel</div>
-            </div>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Campeonato Interno de Duplas VIN</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <div class="header">
+            <h1>Campeonato Interno de Duplas VIN</h1>
+            <div class="underline"></div>
+            <button class="ajuda-button" onclick="abrirWidget()">Ajude na Premiação! </button>
         </div>
-    </div>
-    <div class="date-card">
-        <div class="date-value" style="font-size: 3em; font-weight: bold; margin-right: 1px;">9</div>
-        <div class="date-value" style="font-size: 1em; font-weight: bold; margin-right: 3px;">10</div>
-        <div class="date-label" style="font-size: 0.80em;">📅 Novembro</div>
-    </div>
-    <div style="display: flex; justify-content: center; align-items: center; padding: 20px; border-radius: 8px;">
-        <h2 style="font-size: 2.5em; color: #ffffff; text-align: center; margin: 0;">Duplas</h2>
-        <img src="pubg.png" alt="Logo do PUBG" style="width: 250px; height: auto; float: center; margin-left: 10px;">
-    </div>
-    <div class="container" id="equipesContainer">
-    </div>
-    <div class="mensagem">Outras equipes já estão sendo adicionadas, aguarde!</div>
-    <div class="overlay" id="overlay"></div>
-    <div class="widget-container" id="widget">
-        <h2>Valor Arrecadado</h2>
-        <div class="valor-arrecadado" id="valorArrecadado">R$ 40,00</div>
-        <p class="descricao">Contribua via chave PIX:</p>
-        <p class="pix" id="pix-key">(54) 99276-7447</p>
-        <button class="button" onclick="copiarChavePix()">Copiar Chave PIX</button>
-        <p class="copy-message" id="copyMessage">Chave copiada!</p>
-        <button class="button" onclick="fecharWidget()">Fechar</button>
-    </div>
-    <script src="script.js"></script>
-</body>
-</html>
+        <h2> 👉 Organizador</h2>
+        <div style="display: flex; align-items: center; margin-top: 20px;">
+            <div id="admin"></div>
+            <div style="display: flex; flex-wrap: wrap; margin-left: 20px;">
+                <div class="map-card">
+                    <img src="https://wstatic-prod.pubg.com/web/live/main_a91c4dc/img/3ab566e.jpg" alt="Sanhok">
+                    <div class="map-title">1 Partida</div>
+                    <div class="map-title">Sanhok</div>
+                </div>
+                <div class="map-card">
+                    <img src="https://wstatic-prod.pubg.com/web/live/main_a91c4dc/img/1bee462.jpg" alt="Vikendi">
+                    <div class="map-title">2 Partida</div>
+                    <div class="map-title">Vikendi</div>
+                </div>
+                <div class="map-card">
+                    <img src="https://wstatic-prod.pubg.com/web/live/main_a91c4dc/img/b5c3c7f.jpg" alt="Miramar">
+                    <div class="map-title">3 Partida</div>
+                    <div class="map-title">Miramar</div>
+                </div>
+                <div class="map-card">
+                    <img src="https://wstatic-prod.pubg.com/web/live/main_a91c4dc/img/9b5d63e.jpg" alt="Erangel">
+                    <div class="map-title">Final 🏆</div>
+                    <div class="map-title">Erangel</div>
+                </div>
+            </div>
+            <div class="date-card">
+                <div class="date-value" style="font-size: 2.5em; font-weight: bold;">9</div>
+                <div class="date-value" style="font-size: 1em; font-weight: bold;">10</div>
+                <div class="date-label" style="font-size: 0.80em; margin-top: 5px;">📅 Novembro</div>
+            </div>
+            
+        </div>
+        <div style="display: flex; justify-content: center; align-items: center; padding: 20px; border-radius: 8px;">
+            <h2 style="font-size: 2.5em; color: #ffffff; text-align: center; margin: 0;">Duplas</h2>
+            <img src="pubg.png" alt="Logo do PUBG" style="width: 250px; height: auto; float: center; margin-left: 10px;">
+        </div>
+        <div class="container" id="equipesContainer">
+        </div>
+        <div class="mensagem">Outras equipes já estão sendo adicionadas, aguarde!</div>
+        <div class="overlay" id="overlay"></div>
+        <div class="widget-container" id="widget">
+            <h2>Valor Arrecadado</h2>
+            <div class="valor-arrecadado" id="valorArrecadado">R$ 40,00</div>
+            <p class="descricao">Contribua via chave PIX:</p>
+            <p class="pix" id="pix-key">(54) 99276-7447</p>
+            <button class="button" onclick="copiarChavePix()">Copiar Chave PIX</button>
+            <p class="copy-message" id="copyMessage">Chave copiada!</p>
+            <button class="button" onclick="fecharWidget()">Fechar</button>
+        </div>
+        <script src="script.js"></script>
+    </body>
+    </html>
+    

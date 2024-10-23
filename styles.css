@@ -31,6 +31,7 @@ body {
 
 .date-card {
     position: fixed;
+    /* Fixa o cartão na tela */
     top: 70px;
     /* Abaixo da aba */
     right: 20px;
@@ -40,15 +41,25 @@ body {
     color: #ffffff;
     /* Texto branco */
     padding: 20px;
+    /* Espaçamento interno */
     border-radius: 12px;
+    /* Bordas arredondadas */
     text-align: center;
+    /* Centraliza o texto */
     font-size: 20px;
+    /* Tamanho da fonte */
     width: 120px;
+    /* Largura do cartão */
     height: 100px;
+    /* Altura do cartão */
     display: flex;
+    /* Usar flexbox para layout */
     flex-direction: column;
+    /* Alinha os itens em coluna */
     justify-content: center;
+    /* Centraliza verticalmente */
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    /* Sombra para profundidade */
 }
 
 h2 {
@@ -73,8 +84,8 @@ h2 {
     /* Tamanho da fonte */
     cursor: pointer;
     /* Cursor de mão ao passar o mouse */
-    transition: background-color 0.3s;
-    /* Transição suave para hover */
+    transition: background-color 0.3s, transform 0.2s;
+    /* Transições suaves */
     margin-top: 10px;
     /* Espaçamento acima do botão */
 }
@@ -82,6 +93,8 @@ h2 {
 .ajuda-button:hover {
     background-color: #218838;
     /* Cor ao passar o mouse */
+    transform: scale(1.05);
+    /* Efeito de zoom ao passar o mouse */
 }
 
 .admin-container {
@@ -113,19 +126,22 @@ h2 {
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 20px;
     max-width: 800px;
-    margin: 0 auto;
+    margin: 20px auto; /* Espaçamento ao redor do container */
+    position: relative; /* Para controle de sobreposição */
+    z-index: 1; /* Coloca o container acima dos outros elementos, mas abaixo dos overlays */
+    overflow: hidden; /* Garante que nada ultrapasse os limites */
 }
 
 .dupla {
-    background: #1e1e1e;
-    /* Fundo dos cards */
+    background: #1e1e1e; /* Fundo dos cards */
     border-radius: 12px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
     display: flex;
     align-items: center;
     padding: 20px;
     transition: transform 0.3s, box-shadow 0.3s;
-    overflow: hidden;
+    overflow: hidden; /* Garante que nada ultrapasse os limites */
+    z-index: 0; /* Mantém os cards atrás dos overlays */
 }
 
 .card {
@@ -133,26 +149,27 @@ h2 {
     flex: 1;
     transition: transform 0.3s, box-shadow 0.3s;
     position: relative;
+    z-index: 0; /* Mantém os cards atrás dos overlays */
 }
+
 
 .card img {
     border-radius: 50%;
+    /* Borda arredondada para a imagem */
     width: 80px;
     /* Largura fixa */
     height: 80px;
     /* Altura fixa */
     object-fit: cover;
+    /* Preenchimento da imagem */
     margin-bottom: 10px;
-    max-width: 100%;
-    /* Garante que a imagem não ultrapasse o limite */
-    max-height: 100%;
-    /* Garante que a imagem não ultrapasse o limite */
 }
 
 .card:hover {
     transform: scale(1.1);
     /* Zoom no card */
     box-shadow: 0 8px 40px rgba(0, 0, 0, 0.7);
+    /* Sombra mais forte ao passar o mouse */
 }
 
 .icon {
@@ -164,16 +181,21 @@ h2 {
 
 .partido-icon {
     width: 40px;
+    /* Largura do ícone */
     height: 40px;
+    /* Altura do ícone */
 }
 
 .mensagem {
     margin-top: 20px;
     font-size: 20px;
+    /* Tamanho do texto */
     text-align: center;
+    /* Centraliza o texto */
     color: #ff5722;
     /* Laranja */
     animation: fadeIn 1s ease-in-out;
+    /* Animação de fade in */
 }
 
 .link-nome {
@@ -182,6 +204,7 @@ h2 {
     text-decoration: none;
     /* Remove sublinhado */
     font-weight: bold;
+    /* Texto em negrito */
 }
 
 .link-nome:hover {
@@ -192,15 +215,18 @@ h2 {
 @keyframes fadeIn {
     from {
         opacity: 0;
+        /* Opacidade inicial */
     }
 
     to {
         opacity: 1;
+        /* Opacidade final */
     }
 }
 
 .pulse {
     animation: pulse-animation 1s infinite;
+    /* Animação de pulsação */
 }
 
 @keyframes pulse-animation {
@@ -208,10 +234,12 @@ h2 {
     0%,
     100% {
         transform: scale(1);
+        /* Estado inicial e final */
     }
 
     50% {
         transform: scale(1.1);
+        /* Estado no meio da animação */
     }
 }
 
@@ -219,16 +247,30 @@ h2 {
 .map-card {
     background: #1e1e1e;
     /* Fundo dos cards */
-
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+    /* Sombra dos cards */
     text-align: center;
+    /* Centraliza o texto */
     padding: 10px;
+    /* Espaçamento interno */
     width: 125px;
+    /* Largura do card */
     margin: 10px;
+    /* Margem ao redor do card */
+    border-radius: 8px;
+    /* Bordas arredondadas */
+    transition: transform 0.3s;
+    /* Transição suave */
+}
+
+.map-card:hover {
+    transform: scale(1.05);
+    /* Efeito de zoom ao passar o mouse */
 }
 
 .map-card img {
     border-radius: 8px;
+    /* Borda arredondada para a imagem */
     width: 100%;
     /* Largura do card */
     height: auto;
@@ -237,16 +279,23 @@ h2 {
 
 .map-title {
     margin-top: 10px;
+    /* Espaçamento acima do título */
     font-weight: bold;
+    /* Texto em negrito */
 }
 
 /* Widget de Arrecadação */
 .overlay {
     position: fixed;
+    /* Fixa a overlay na tela */
     top: 0;
+    /* Alinha ao topo */
     left: 0;
+    /* Alinha à esquerda */
     width: 100%;
+    /* Largura total */
     height: 100%;
+    /* Altura total */
     background: rgba(0, 0, 0, 0.7);
     /* Fundo escuro com opacidade */
     display: none;
@@ -263,10 +312,15 @@ h2 {
     border: 2px solid #444;
     /* Borda mais escura */
     border-radius: 15px;
+    /* Bordas arredondadas */
     padding: 20px;
+    /* Espaçamento interno */
     width: 300px;
+    /* Largura do widget */
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    /* Sombra */
     text-align: center;
+    /* Centraliza o texto */
     position: fixed;
     /* Fixa o widget na tela */
     top: 50%;
@@ -281,22 +335,29 @@ h2 {
 
 .widget-container h2 {
     font-size: 1.5em;
+    /* Tamanho do título */
     color: #fff;
     /* Cor do título */
     margin-bottom: 15px;
+    /* Margem abaixo do título */
 }
 
 .pix {
     font-weight: bold;
+    /* Texto em negrito */
     color: #28a745;
+    /* Cor verde */
     font-size: 1.2em;
+    /* Tamanho do texto */
 }
 
 .valor-arrecadado {
     margin-top: 15px;
+    /* Margem acima do valor */
     font-size: 2em;
     /* Tamanho maior */
     font-weight: bold;
+    /* Texto em negrito */
     color: #fff;
     /* Cor do valor */
     background-color: #28a745;
@@ -318,26 +379,36 @@ h2 {
     /* Efeito de zoom ao passar o mouse */
 }
 
-
 .descricao {
     font-size: 0.95em;
+    /* Tamanho da descrição */
     color: #ccc;
     /* Cor da descrição */
     margin-bottom: 10px;
+    /* Margem abaixo da descrição */
 }
 
 .button {
     display: inline-block;
+    /* Exibe como bloco inline */
     background-color: #28a745;
     /* Cor do botão */
     color: #fff;
+    /* Cor do texto */
     padding: 10px 20px;
+    /* Espaçamento interno */
     text-decoration: none;
+    /* Remove sublinhado */
     border-radius: 5px;
+    /* Cantos arredondados */
     margin-top: 15px;
+    /* Margem acima do botão */
     font-size: 1em;
+    /* Tamanho do texto */
     transition: background-color 0.3s ease;
+    /* Transição suave */
     cursor: pointer;
+    /* Cursor de mão ao passar o mouse */
 }
 
 .button:hover {
@@ -347,7 +418,9 @@ h2 {
 
 .copy-message {
     margin-top: 10px;
+    /* Margem acima da mensagem */
     font-size: 0.9em;
+    /* Tamanho da mensagem */
     color: #28a745;
     /* Cor da mensagem */
     display: none;
