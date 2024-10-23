@@ -12,15 +12,16 @@
     <div class="header">
         <h1>Campeonato Interno de Duplas VIN</h1>
         <div class="underline"></div>
-        <h2>👉 Organizador</h2>
         <div style="display: flex; align-items: center; margin-top: 20px;">
-            <div id="admin"></div>
+            <div id="admin">
+                <!-- Título removido -->
+            </div>
             <div class="date-card">
                 <div class="date-value" style="font-size: 2.5em; font-weight: bold;">9</div>
                 <div class="date-label" style="font-size: 0.80em; margin-top: 5px;">📅 Novembro</div>
             </div>
             <button class="ajuda-button" onclick="abrirWidget()" style="margin-left: 10px;">Ajude na Premiação!
-                <br>Arrecadado<br> R$ 40,00</button>
+                <br>Arrecadado<br> <span id="valorArrecadado">R$ 40,00</span></button>
 
             <!-- Separador para o modo de jogo -->
             <div class="separador"
@@ -36,9 +37,8 @@
                 </div>
             </div>
         </div>
-
     </div>
-    </div>
+    
     <div style="display: flex; justify-content: center; flex-wrap: wrap; margin-top: 20px;">
         <div style="display: flex; flex-wrap: wrap; justify-content: center; margin: 20px;">
             <div class="map-card" style="margin: 10px;">
@@ -64,9 +64,6 @@
         </div>
     </div>
 
-
-
-
     <div style="display: flex; justify-content: center; align-items: center; padding: 20px; border-radius: 8px;">
         <h2 style="font-size: 2.5em; color: #ffffff; text-align: center; margin: 0;">(10) Duplas</h2>
         <img src="pubg.png" alt="Logo do PUBG" style="width: 250px; height: auto; margin-left: 10px;">
@@ -88,7 +85,8 @@
         <button class="button" onclick="fecharWidget()">Fechar</button>
     </div>
 
-    <script src="script.js"></script>
+    <script src="app.js"></script>
+    <script src="script.js"></script> <!-- Inclui seu script adicional -->
 </body>
 
 </html>
