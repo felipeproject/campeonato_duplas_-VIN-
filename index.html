@@ -4,13 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Campeonato Interno de Duplas VIN</title>
+    <title>[VIN] Campeonato de Duplas E-SPORTS</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
     <div class="header">
-        <h1>Campeonato Interno de Duplas VIN</h1>
+        <h1>Campeonato Interno de Duplas <br> OS VINGADORES <br> E-SPORTS</h1>
         <div class="underline"></div>
         <div style="display: flex; align-items: center; margin-top: 20px;">
             <div id="admin"></div>
@@ -18,24 +18,25 @@
                 <div class="date-value" style="font-size: 2.5em; font-weight: bold;">9</div>
                 <div class="date-label" style="font-size: 0.80em; margin-top: 5px;">📅 Novembro</div>
             </div>
-            <button class="ajuda-button" onclick="abrirWidget()" style="margin-left: 10px;">Ajude na Premiação!
-                <br>Arrecadado<br> <span id="valorArrecadado">R$ 0,00</span></button>
-
+            <button class="ajuda-button" onclick="abrirWidget()" style="margin-left: 10px;">
+                Ajude na Premiação! 
+                <br>Arrecadado<br> 
+                <span id="valorArrecadado">R$ 0,00</span>
+            </button>
+            
             <div class="separador"
-                style="margin-left: 20px; padding: 20px; display: flex; align-items: center; border: 1px solid #ffffff; border-radius: 8px; background-color: rgba(255, 255, 255, 0.1);">
-                <h3 style="font-size: 2em; color: #ffffff; margin: 0; margin-right: 20px;">Modo de jogo: <br> (TPP)</h3>
-                <div style="display: flex; gap: 10px;">
+            style="margin-left: 20px; padding: 20px; display: flex; align-items: center; border: 1px solid #ffffff; border-radius: 8px; background-color: rgba(255, 255, 255, 0.1);">
+            <h3 style="font-size: 2em; color: #ffffff; margin: 0; margin-right: 20px;">Modo de jogo: <br> (TPP)</h3>
+            <div style="display: flex; gap: 10px;">
+                <button
+                style="padding: 10px 20px; font-size: 1em; background-color: #007BFF; border: none; color: #ffffff; border-radius: 5px; cursor: pointer;">Regras do Campeonato</button>
                     <button
-                        style="padding: 10px 20px; font-size: 1em; background-color: #007BFF; border: none; color: #ffffff; border-radius: 5px; cursor: pointer;">Botão
-                        1</button>
-                    <button
-                        style="padding: 10px 20px; font-size: 1em; background-color: #007BFF; border: none; color: #ffffff; border-radius: 5px; cursor: pointer;">Botão
-                        2</button>
+                    style="padding: 10px 20px; font-size: 1em; background-color: #007BFF; border: none; color: #ffffff; border-radius: 5px; cursor: pointer;">Sistema de Classificação</button>
                 </div>
             </div>
         </div>
     </div>
-
+    
     <div style="display: flex; justify-content: center; flex-wrap: wrap; margin-top: 20px;">
         <div style="display: flex; flex-wrap: wrap; justify-content: center; margin: 20px;">
             <div class="map-card" style="margin: 10px;">
@@ -60,20 +61,21 @@
             </div>
         </div>
     </div>
-
+    
     <div style="display: flex; justify-content: center; align-items: center; padding: 20px; border-radius: 8px;">
         <h2 style="font-size: 2.5em; color: #ffffff; text-align: center; margin: 0;">(10) Duplas</h2>
         <img src="pubg.png" alt="Logo do PUBG" style="width: 250px; height: auto; margin-left: 10px;">
     </div>
-
+    
     <div class="container" id="equipesContainer"></div>
-
+    
     <div class="mensagem">Outras equipes já estão sendo adicionadas, aguarde!</div>
-
+    
     <div class="overlay" id="overlay"></div>
-
+    
     <div class="widget-container" id="widget">
         <h2>Valor Total da <br> Premiação</h2>
+        <img src="Imagem.jpg" alt="Imagem da Premiação" style="width: 210px; height: auto; margin-top: 5px;">
         <div class="valor-arrecadado" id="valorArrecadadoWidget">R$ 0,00</div>
         <p class="descricao">Contribua via chave PIX:</p>
         <p class="pix" id="pix-key">(54) 99276-7447</p>
