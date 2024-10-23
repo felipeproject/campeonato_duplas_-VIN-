@@ -13,17 +13,14 @@
         <h1>Campeonato Interno de Duplas VIN</h1>
         <div class="underline"></div>
         <div style="display: flex; align-items: center; margin-top: 20px;">
-            <div id="admin">
-                <!-- Título removido -->
-            </div>
+            <div id="admin"></div>
             <div class="date-card">
                 <div class="date-value" style="font-size: 2.5em; font-weight: bold;">9</div>
                 <div class="date-label" style="font-size: 0.80em; margin-top: 5px;">📅 Novembro</div>
             </div>
             <button class="ajuda-button" onclick="abrirWidget()" style="margin-left: 10px;">Ajude na Premiação!
-                <br>Arrecadado<br> <span id="valorArrecadado">R$ 40,00</span></button>
+                <br>Arrecadado<br> <span id="valorArrecadado">R$ 0,00</span></button>
 
-            <!-- Separador para o modo de jogo -->
             <div class="separador"
                 style="margin-left: 20px; padding: 20px; display: flex; align-items: center; border: 1px solid #ffffff; border-radius: 8px; background-color: rgba(255, 255, 255, 0.1);">
                 <h3 style="font-size: 2em; color: #ffffff; margin: 0; margin-right: 20px;">Modo de jogo: <br> (TPP)</h3>
@@ -38,7 +35,7 @@
             </div>
         </div>
     </div>
-    
+
     <div style="display: flex; justify-content: center; flex-wrap: wrap; margin-top: 20px;">
         <div style="display: flex; flex-wrap: wrap; justify-content: center; margin: 20px;">
             <div class="map-card" style="margin: 10px;">
@@ -77,7 +74,7 @@
 
     <div class="widget-container" id="widget">
         <h2>Valor Total da <br> Premiação</h2>
-        <div class="valor-arrecadado" id="valorArrecadado">R$ 40,00</div>
+        <div class="valor-arrecadado" id="valorArrecadadoWidget">R$ 0,00</div>
         <p class="descricao">Contribua via chave PIX:</p>
         <p class="pix" id="pix-key">(54) 99276-7447</p>
         <button class="button" onclick="copiarChavePix()">Copiar Chave PIX</button>
@@ -85,8 +82,8 @@
         <button class="button" onclick="fecharWidget()">Fechar</button>
     </div>
 
-    <script src="app.js"></script>
-    <script src="script.js"></script> <!-- Inclui seu script adicional -->
+    <script src="script.js"></script> <!-- Seu script principal -->
+    <script src="valueCollected.js"></script> <!-- Script para o valor arrecadado -->
 </body>
 
 </html>
