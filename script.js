@@ -100,3 +100,4 @@ function mostrarMensagemSucesso(mensagem) {
 
 // Chama a função para carregar as equipes ao carregar a página
 document.addEventListener('DOMContentLoaded', carregarEquipes);
+
