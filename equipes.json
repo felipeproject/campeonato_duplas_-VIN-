@@ -5,12 +5,12 @@
     },
     "equipes": [
         {
-            "dupla": ["azafree22", "Slokuz"],
-            "imagens": ["azafree22.png", "Slokuz.png"]
-        },
-        {
             "dupla": ["AI3Mrcs", "❌"],
             "imagens": ["AI3Mrcs.png", "SEM_DUPLA.png"]
+        },
+        {
+            "dupla": ["azafree22", "Slokuz"],
+            "imagens": ["azafree22.png", "Slokuz.png"]
         },
         {
             "dupla": ["ALEMAOFIRE13", "xCHUMELAx"],
