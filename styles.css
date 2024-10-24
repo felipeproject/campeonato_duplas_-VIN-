@@ -259,9 +259,7 @@ body {
     transition: transform 0.2s;
 }
 
-.valor-arrecadado:hover {
-    transform: scale(1.05);
-}
+
 
 .descricao {
     font-size: 0.95em;

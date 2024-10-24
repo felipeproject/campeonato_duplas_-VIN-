@@ -19,73 +19,69 @@
                 <div class="date-label" style="font-size: 0.80em; margin-top: 5px;">NOV </div>
             </div>
             <!-- Botão para colaboração -->
-            <button class="ajuda-button" onclick="abrirWidget()" style="margin-left: 15px;">
-                Colabore com a Premiação!
+            <button class="ajuda-button" onclick="abrirWidget()" style="margin-left: 50px;">
+                Contribua!
+                Clique aqui
                 <br>🙌<br>
-                <br>Total enviado!<br>
+                <br>Premiação<br>
                 <span id="valorArrecadado">R$ 0,00</span>
             </button>
-
-            <!-- Widget de Arrecadação PIX -->
+            
             
             <div class="separador"
-            style="margin-left: 20px; padding: 20px; display: flex; align-items: center; border: 1px solid #ffffff; border-radius: 8px; background-color: rgba(255, 255, 255, 0.1);">
-            <h3 style="font-size: 2em; color: #ffffff; margin: 0; margin-right: 20px;">Esports Mode<br> <br> (TPP)
-                </h3>
-                <h3 style="font-size: 2em; color: #ffffff; margin: 0; margin-left: 20px;"><br> </h3>
-                <div style="display: flex; gap: 5px;">
-                    <button
+            style="margin-left: 20px; padding: 20px; display: grid; grid-template-columns: 1fr 1fr; gap: 20px; align-items: center; border: 1px solid #ffffff; border-radius: 8px; background-color: rgba(255, 255, 255, 0.1);">
+            <h3 style="font-size: 2em; color: #ffffff; margin: 0;">Esports Mode<br><br>(TPP)</h3>
+            <div style="display: flex; gap: 5px; justify-content: end;">
+                <button
                     style="padding: 10px 20px; font-size: 1em; background-color: rgb(146, 112, 0); border: none; color: #ffffff; border-radius: 5px; cursor: pointer;"
                     onclick="document.getElementById('customModal').style.display='block'">Regras do Campeonato</button>
-                    <div id="customModal"
-                    style="display:none; position:fixed; z-index:9999; left:0; top:0; width:100%; height:100%; background-color:rgba(0,0,0,0.7);">
-                    <div
-                            style="background-color:#000000; margin:10% auto; padding:30px; border:1px solid #444; width:80%; max-width:500px; text-align:center; border-radius:10px; box-shadow: 0px 0px 15px rgba(0,0,0,0.3);">
-                            <span style="color:#444; float:right; font-size:28px; font-weight:bold; cursor:pointer;"
-                            onclick="document.getElementById('customModal').style.display='none'">&times;</span>
-                            <h2 style="color:#ff0000;">⚠ AVISO IMPORTANTE ⚠</h2>
-                            <p style="color:#ffffff;">O uso de trapaças (cheat) durante partidas <strong>NÃO</strong>
-                                será tolerado!</p>
-                                <p style="color:#ffffff;">Se alguém for pego usando qualquer tipo de cheat, as consequências
-                                    serão as seguintes:</p>
-                                    <p style="color:#ffffff;"><strong>1.</strong> EXPULSÃO IMEDIATA do campeonato.</p>
-                                    <p style="color:#ffffff;"><strong>2.</strong> EXCLUSÃO PERMANENTE do clã.</p>
-                                    <p style="color:#ffffff;"><strong>3.</strong> DENÚNCIA direta no jogo por TODOS OS MEMBROS
-                                        do clã.</p>
-                            <p style="color:#ffffff;">Queremos um ambiente justo e competitivo. Jogue limpo e respeite
-                                seus companheiros!</p>
-                                <p style="color:#ffffff;">A vitória só vale quando é merecida. 💪🏻</p>
-                            </div>
-                        </div>
-                        <button
-                        style="padding: 10px 20px; font-size: 1em; background-color: rgb(146, 112, 0); border: none; color: #ffffff; border-radius: 5px; cursor: pointer;"
-                        onclick="document.getElementById('rankingModal').style.display='block'">Sistema de
-                        Classificação</button>
-
-                        <div id="rankingModal"
-                        style="display:none; position:fixed; z-index:9999; left:0; top:0; width:100%; height:100%; background-color:rgba(0,0,0,0.8);">
-                        <div
-                        style="background-color:#000000; margin:10% auto; padding:30px; border:1px solid #444; width:80%; max-width:500px; text-align:center; border-radius:10px; box-shadow: 0px 0px 15px rgba(0,0,0,0.5);">
-                        <span style="color:#ffffff; float:right; font-size:28px; font-weight:bold; cursor:pointer;"
-                        onclick="document.getElementById('rankingModal').style.display='none'">&times;</span>
-                        <h2 style="color:#ffcc00;">Sistema de Classificação</h2>
-                        
-                        <p style="color:#ffffff;"><strong>1.</strong> O campeonato será realizado em 4 jogos.</p>
-                        <p style="color:#ffffff;"><strong>2.</strong> As partidas serão realizadas em Esports Mode.
-                        </p>
-                            <p style="color:#ffffff;"><strong>3.</strong> As equipes são classificadas com base em sua
-                                colocação final e número de eliminações.</p>
-                            <p style="color:#ffffff;"><strong>4.</strong> Pontos são atribuídos da seguinte forma: 1º
-                                lugar - 10 pontos, 2º lugar - 8 pontos, etc.</p>
-                                <p style="color:#ffffff;"><strong>5.</strong> Cada eliminação vale 1 ponto.</p>
-                                <p style="color:#ffffff;"><strong>6.</strong> Em caso de empate, o número de eliminações
-                                    será o critério de desempate.</p>
-                                    <p style="color:#ffffff;">Fique atento à tabela de classificação para acompanhar sua dupla!
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
+                <button
+                    style="padding: 10px 20px; font-size: 1em; background-color: rgb(146, 112, 0); border: none; color: #ffffff; border-radius: 5px; cursor: pointer;"
+                    onclick="document.getElementById('rankingModal').style.display='block'">Sistema de Classificação</button>
             </div>
+        
+            <!-- Modal Regras do Campeonato -->
+            <div id="customModal"
+                style="display:none; position:fixed; z-index:9999; left:0; top:0; width:100%; height:100%; background-color:rgba(0,0,0,0.7);">
+                <div
+                    style="background-color:#000000; margin:10% auto; padding:30px; border:1px solid #444; width:80%; max-width:500px; text-align:center; border-radius:10px; box-shadow: 0px 0px 15px rgba(0,0,0,0.3);">
+                    <span style="color:#444; float:right; font-size:28px; font-weight:bold; cursor:pointer;"
+                        onclick="document.getElementById('customModal').style.display='none'">&times;</span>
+                    <h2 style="color:#ff0000;">⚠ AVISO IMPORTANTE ⚠</h2>
+                    <p style="color:#ffffff;">O uso de trapaças (cheat) durante partidas <strong>NÃO</strong> será tolerado!</p>
+                    <p style="color:#ffffff;">Se alguém for pego usando qualquer tipo de cheat, as consequências serão as
+                        seguintes:</p>
+                    <p style="color:#ffffff;"><strong>1.</strong> EXPULSÃO IMEDIATA do campeonato.</p>
+                    <p style="color:#ffffff;"><strong>2.</strong> EXCLUSÃO PERMANENTE do clã.</p>
+                    <p style="color:#ffffff;"><strong>3.</strong> DENÚNCIA direta no jogo por TODOS OS MEMBROS do clã.</p>
+                    <p style="color:#ffffff;">Queremos um ambiente justo e competitivo. Jogue limpo e respeite seus companheiros!
+                    </p>
+                    <p style="color:#ffffff;">A vitória só vale quando é merecida. 💪🏻</p>
+                </div>
+            </div>
+        
+            <!-- Modal Sistema de Classificação -->
+            <div id="rankingModal"
+                style="display:none; position:fixed; z-index:9999; left:0; top:0; width:100%; height:100%; background-color:rgba(0,0,0,0.8);">
+                <div
+                    style="background-color:#000000; margin:10% auto; padding:30px; border:1px solid #444; width:80%; max-width:500px; text-align:center; border-radius:10px; box-shadow: 0px 0px 15px rgba(0,0,0,0.5);">
+                    <span style="color:#ffffff; float:right; font-size:28px; font-weight:bold; cursor:pointer;"
+                        onclick="document.getElementById('rankingModal').style.display='none'">&times;</span>
+                    <h2 style="color:#ffcc00;">Sistema de Classificação</h2>
+                    <p style="color:#ffffff;"><strong>1.</strong> O campeonato será realizado em 4 jogos.</p>
+                    <p style="color:#ffffff;"><strong>2.</strong> As partidas serão realizadas em Esports Mode.</p>
+                    <p style="color:#ffffff;"><strong>3.</strong> As equipes são classificadas com base em sua colocação final e
+                        número de eliminações.</p>
+                    <p style="color:#ffffff;"><strong>4.</strong> Pontos são atribuídos da seguinte forma: 1º lugar - 10 pontos,
+                        2º lugar - 8 pontos, etc.</p>
+                    <p style="color:#ffffff;"><strong>5.</strong> Cada eliminação vale 1 ponto.</p>
+                    <p style="color:#ffffff;"><strong>6.</strong> Em caso de empate, o número de eliminações será o critério de
+                        desempate.</p>
+                    <p style="color:#ffffff;">Fique atento à tabela de classificação para acompanhar sua dupla!</p>
+                </div>
+            </div>
+        </div>
+        
         </div>
     </div>
 
@@ -132,6 +128,20 @@
         <div class="valor-arrecadado" id="valorArrecadadoWidget">R$ 0,00</div>
         <img src="Imagem.jpg" alt="Imagem da Premiação" style="width: 210px; height: auto; margin-top: 5px;">
         <p class="descricao">Contribua via chave PIX:</p>
+        <!-- Botão de "?" -->
+<div style="position: relative; display: inline-block;">
+    <button
+        style="background-color: rgb(59, 59, 59); color: white; border: none; border-radius: 50%; width: 30px; height: 30px; font-size: 1em; cursor: pointer; text-align: center; padding: 0;"
+        onclick="document.getElementById('infoPopup').style.display='block'">?</button>
+
+    <!-- Popup de informação -->
+    <div id="infoPopup" style="display:none; position: absolute; bottom: 40px; left: -10px; width: 200px; background-color: #000000; color: white; padding: 10px; border-radius: 5px; text-align: left; box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.5); z-index: 1;">
+        <span style="color: #ff0000; float: right; cursor: pointer; font-size: 1.2em;" onclick="document.getElementById('infoPopup').style.display='none'">&times;</span>
+        <p>O valor total será dividido igualmente entre os membros da dupla vencedora, assegurando que ambos recebam partes iguais da premiação.</p>
+
+    </div>
+</div>
+
         <p class="pix" id="pix-key">(54) 99276-7447</p>
         <button class="button" onclick="copiarChavePix()">Copiar Chave PIX</button>
         <p class="copy-message" id="copyMessage">Chave copiada!</p>
