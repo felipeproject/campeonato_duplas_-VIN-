@@ -2,7 +2,7 @@ body {
     font-family: 'Arial', sans-serif;
     background-color: #121212;
     color: #ffffff;
-    padding: 20px;
+    padding: 50px;
     margin: 0;
 }
 
@@ -25,9 +25,9 @@ body {
 
 .date-card {
     position: fixed;
-    top: 70px;
-    right: 20px;
-    background: #1a73e8;
+    top: 100px;
+    right: 10px;
+    background: #38058b;
     color: #ffffff;
     padding: 20px;
     border-radius: 12px;
@@ -41,39 +41,34 @@ body {
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
 }
 
-.date-card h2 {
-    font-size: 28px;
-    margin: 15px 0;
-    color: #ffffff;
-}
 
 .ajuda-button {
-    background-color: #28a745;
+    background-color: #0d862a;
     color: white;
     border: none;
-    border-radius: 5px;
+    border-radius: 20px;
     padding: 10px 20px;
     font-size: 20px;
     cursor: pointer;
-    transition: background-color 0.3s, transform 0.2s;
-    margin-top: 10px;
+    transition: background-color 0.5s, transform 0.3s;
+    margin-top: 0px;
 }
 
 .ajuda-button:hover {
     background-color: #218838;
-    transform: scale(1.05);
+    transform: scale(1.10);
 }
 
 .admin-container {
     margin-bottom: 20px;
     text-align: center;
     background: #1e1e1e;
-    padding: 20px;
-    border-radius: 12px;
-    color: #1a73e8;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
-    width: 100%;
-    max-width: 400px;
+    padding: 15px;
+    border-radius: 10px;
+    color: #0ee0b2ea;
+    box-shadow: 0 4px 30px rgba(0, 255, 255, 0.13);
+    width: 90%;
+    max-width: 200px;
 }
 
 .admin-container img {
@@ -82,28 +77,28 @@ body {
     height: 120px;
     object-fit: cover;
     margin-bottom: 10px;
-    border: 4px solid #1a73e8;
+    border: 4px solid #09cab091;
 }
 
 .container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fill, minmax(310px, 2fr));
+    gap: 50px;
     max-width: 800px;
-    margin: 20px auto;
+    margin: 0px auto;
     position: relative;
     z-index: 1;
     overflow: hidden;
 }
 
 .dupla {
-    background: #1e1e1e;
-    border-radius: 12px;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+    background: #202020;
+    border-radius: 5px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.726);
     display: flex;
     align-items: center;
     padding: 20px;
-    transition: transform 0.3s, box-shadow 0.3s;
+    transition: transform 1s, box-shadow 0.3s;
     overflow: hidden;
     z-index: 0;
 }
@@ -121,12 +116,11 @@ body {
     width: 80px;
     height: 80px;
     object-fit: cover;
-    margin-bottom: 10px;
+    margin-bottom: 0.1px;
 }
 
 .card:hover {
-    transform: scale(1.1);
-    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.7);
+    transform: scale(1.25);
 }
 
 .icon {
@@ -137,8 +131,8 @@ body {
 }
 
 .partido-icon {
-    width: 40px;
-    height: 40px;
+    width: 60px;
+    height: 60px;
 }
 
 .mensagem {
@@ -150,9 +144,11 @@ body {
 }
 
 .link-nome {
-    color: #1a73e8;
+    color: #ffffff;
+    text-align: center;
     text-decoration: none;
     font-weight: bold;
+    
 }
 
 .link-nome:hover {
@@ -186,7 +182,7 @@ body {
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
     text-align: center;
     padding: 10px;
-    width: 300px;
+    width: 270px;
     margin: 0px;
     border-radius: 8px;
     transition: transform 0.3s;
