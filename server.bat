@@ -1,2 +1,3 @@
-python -m http.server 8081
+:init
 python -m http.server 8080
+goto:init
